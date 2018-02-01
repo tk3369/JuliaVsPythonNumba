@@ -172,4 +172,14 @@ Iteration #19
 Iteration #20
   0.599880 seconds (950 allocations: 686.673 MiB, 42.27% gc time)
 
+100 iterations:
+  0.605452 seconds (4.40 k allocations: 686.772 MiB, 42.32% gc time)
+
+500 iterations:
+  0.614027 seconds (21.62 k allocations: 687.266 MiB, 43.48% gc time)
+
+5,000 iterations:
+0.753455 seconds (219.99 k allocations: 692.902 MiB, 34.30% gc time)
+
+
 ```
