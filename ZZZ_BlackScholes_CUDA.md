@@ -2,6 +2,9 @@
 
 Server: p2.xlarge instance on AWS
 
+TODO: 
+- CUDA result seems too good to be true (see below)
+
 ```
 julia> @benchmark testbs_cuda(1, 4000000, black_scholes_cuda, 1, 1024)
 BenchmarkTools.Trial: 
@@ -128,4 +131,45 @@ println("CUDA version")
 tic()
 testbs_cuda(iterations, asize, black_scholes_cuda, 1, 12)
 toc()
+```
+
+CUDA scale weirdness - marginal difference.
+
+```julia
+julia> @time testbs_cuda(10, 10000000, black_scholes_cuda, 1, 12)
+Iteration #1
+Iteration #2
+Iteration #3
+Iteration #4
+Iteration #5
+Iteration #6
+Iteration #7
+Iteration #8
+Iteration #9
+Iteration #10
+  0.551615 seconds (501 allocations: 686.660 MiB, 46.46% gc time)
+
+julia> @time testbs_cuda(20, 10000000, black_scholes_cuda, 1, 12)
+Iteration #1
+Iteration #2
+Iteration #3
+Iteration #4
+Iteration #5
+Iteration #6
+Iteration #7
+Iteration #8
+Iteration #9
+Iteration #10
+Iteration #11
+Iteration #12
+Iteration #13
+Iteration #14
+Iteration #15
+Iteration #16
+Iteration #17
+Iteration #18
+Iteration #19
+Iteration #20
+  0.599880 seconds (950 allocations: 686.673 MiB, 42.27% gc time)
+
 ```
