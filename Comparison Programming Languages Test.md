@@ -7,7 +7,7 @@ The result is inconclusive as it appears to depend on system architecture.
 Reference:
 https://discourse.julialang.org/t/a-comparison-of-programming-languages-in-economics/8966/20
 
-## MacOS
+## MacOS - Intel(R) Core(TM) i5-4258U CPU @ 2.40GHz
 
 Julia 1.63 vs Python 1.35 seconds
 
@@ -47,7 +47,7 @@ Python 3.6.3 |Anaconda, Inc.| (default, Oct  6 2017, 12:04:38)
 [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)] on darwin
 ```
 
-## Linux
+## Linux - Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
 
 Julia 1.48 vs Python 2.51 seconds
 
