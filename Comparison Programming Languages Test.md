@@ -2,14 +2,18 @@
 
 ## Summary
 
-The result is inconclusive as it appears to depend on system architecture.
+The speed of execution seems to depend on system architecture.  The following test results show a possible deficiency with Anaconda's distribution on Linux.
 
-Reference:
+OS | CPU | Julia | Python
+---|----|----|----
+MacOS | Intel(R) Core(TM) i5-4258U CPU @ 2.40GHz | 1.63 | 1.35
+Linux | Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz | 1.48 | 2.51
+Linux | Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz | 1.19 | 2.26
+
+Discussion Reference:
 https://discourse.julialang.org/t/a-comparison-of-programming-languages-in-economics/8966/20
 
 ## MacOS - Intel(R) Core(TM) i5-4258U CPU @ 2.40GHz
-
-Julia 1.63 vs Python 1.35 seconds
 
 ```
 $ python RBC.py
@@ -49,8 +53,6 @@ Python 3.6.3 |Anaconda, Inc.| (default, Oct  6 2017, 12:04:38)
 
 ## Linux - Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
 
-Julia 1.48 vs Python 2.51 seconds
-
 ```
 $ python RBC.py
 2018-02-18 21:59:17.122873
@@ -84,6 +86,44 @@ Platform Info:
   
 $ python
 Python 3.6.3 |Anaconda, Inc.| (default, Oct 13 2017, 12:02:49) 
+[GCC 7.2.0] on linux
+```
+
+## Linux - Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz
+
+```
+$ julia RBC.jl
+2018-02-18T14:24:05.486
+2018-02-18T14:24:17.395
+1.1909
+$ julia RBC.jl
+2018-02-18T14:24:24.079
+2018-02-18T14:24:36.011
+1.1932
+
+$ python RBC.py
+2018-02-18 14:25:27.390147
+2018-02-18 14:25:49.983965
+2.2593497129157187
+$ python RBC.py
+2018-02-18 14:25:57.602881
+2018-02-18 14:26:21.048854
+2.344556374568492
+
+julia> versioninfo()
+Julia Version 0.6.2
+Commit d386e40c17 (2017-12-13 18:08 UTC)
+Platform Info:
+  OS: Linux (x86_64-pc-linux-gnu)
+  CPU: Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz
+  WORD_SIZE: 64
+  BLAS: libopenblas (USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell)
+  LAPACK: libopenblas64_
+  LIBM: libopenlibm
+  LLVM: libLLVM-3.9.1 (ORCJIT, broadwell)
+
+$ python
+Python 3.6.3 |Anaconda, Inc.| (default, Oct 13 2017, 12:02:49)
 [GCC 7.2.0] on linux
 
 ```
