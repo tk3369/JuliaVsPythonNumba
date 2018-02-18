@@ -1,4 +1,4 @@
-# Benchmarking Julia vs Numba in Linux & MacOS
+# Julia vs Numba (A Comparison of Programming Languages in Economics) 
 
 ## Summary
 
